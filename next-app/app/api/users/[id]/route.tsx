@@ -11,3 +11,21 @@ export function GET(
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   return NextResponse.json({ id: 1, name: "Jack" });
 }
+
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: { id: number } }
+) {
+  // Validate the request body
+  const body = await request.json();
+  // Fetch the user with the given id
+  if (!body.name)
+    // If invalid return 400
+    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+  if (params.id > 10)
+    // If doesn't exist return 404
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  // Update the user
+  // Return the updated user
+  return NextResponse.json({ id: 1, name: body.name });
+}
