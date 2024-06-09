@@ -17,6 +17,20 @@ export async function POST(request: NextRequest) {
   const validation = schema.safeParse(body);
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 });
+
+  const user = await prisma.user.findUnique({
+    where: { email: body.email },
+  });
+
+  if (user)
+    return NextResponse.json({ error: "User already exists" }, { status: 400 });
+
+  const newUser = await prisma.user.create({
+    data: {
+      name: body.name,
+      email: body.email,
+    },
+  });
   // 201 means server had created a new resourse
-  return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
+  return NextResponse.json(newUser, { status: 201 });
 }
