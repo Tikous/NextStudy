@@ -1,0 +1,1 @@
+"use strict";exports.id=792,exports.ids=[792],exports.modules={10792:(e,s,t)=>{t.r(s),t.d(s,{default:()=>r});var d=t(19510);t(71159);let r=()=>d.jsx("div",{children:"My Heavy Component"})}};
