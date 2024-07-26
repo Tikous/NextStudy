@@ -32,9 +32,7 @@ const NewIssuePage = () => {
     try {
       setSubmitting(true);
       await axios.post("/api/issues", data);
-      // router.replace("/issues");
-      // Fix the bug that issues page doesn't refetch the data.
-      window.location.href = "/issues";
+      router.replace("/issues");
     } catch (error) {
       setSubmitting(false);
       setError("An unexpected error occurred.");
