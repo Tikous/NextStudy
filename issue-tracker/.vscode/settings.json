@@ -1,3 +1,14 @@
 {
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 5000,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "files.autoSave": "onWindowChange",
+  "typescript.format.enable": true,
+  "javascript.format.enable": true,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true
+  }
 }
